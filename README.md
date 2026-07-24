@@ -1,14 +1,14 @@
 <!--
 # This is the name of the snap. The name that is registered on the snap store and also the name of the cli command.
-snap-name: gemma4
+snap-name: nomic-embed-text-v1-5
 # This name is just a friendly name for the snap, it can be used in the documentation
-snap-friendly-name: Gemma 4
+snap-friendly-name: Nomic Embed Text v1.5
 # URL to model card from the model publisher
-model-card: https://ai.google.dev/gemma/docs/core/model_card_4
+model-card: https://huggingface.co/nomic-ai/nomic-embed-text-v1.5
 # The port that the inference snap will use for its API server.
-http-port: 8080
+http-port: 8348
 # The port that the inference snap will use for its webui server.
-webui-http-port: 8081
+webui-http-port: 8349
 # Optimizations
 engines: cpu, nvidia-gpu
 -->
