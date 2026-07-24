@@ -61,4 +61,4 @@ download-model:
 	@echo "Downloading model weights..."
 	$(hf) download nomic-ai/nomic-embed-text-v1.5-GGUF \
         nomic-embed-text-v1.5.Q4_K_M.gguf \
-        --local-dir components/model-nomic-embed-test-v1.5/
+        --local-dir components/model-nomic-embed-text-v1-5/

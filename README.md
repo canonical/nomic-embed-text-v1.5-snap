@@ -13,12 +13,12 @@ webui-http-port: 8349
 engines: cpu, nvidia-gpu
 -->
 
-# {snap-friendly-name} inference snap
-[![{snap-name}](https://snapcraft.io/{snap-name}/badge.svg)](https://snapcraft.io/{snap-name})
+# Nomic Embed Text v1.5 inference snap
+[![nomic-embed-text-v1-5](https://snapcraft.io/nomic-embed-text-v1-5/badge.svg)](https://snapcraft.io/nomic-embed-text-v1-5)
 
 > This README is a template. Fields wrapped in `{...}` should be replaced with concrete values. If you use an agentic workflow using the included [workshop](#develop-this-snap-in-workshop), the values will get filled automatically.
 
-Install [{snap-friendly-name}]({model-card}), optimized directly for your hardware.
+Install [Nomic Embed Text v1.5](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5), optimized directly for your hardware.
 This package deploys a high-performance runtime for local inference across arm and x86 platforms. It runs efficiently on pure CPU or leverages hardware acceleration via {NVIDIA, Intel, or AMD GPUs}.
 
 Before starting, install the necessary [drivers](https://documentation.ubuntu.com/inference-snaps/how-to/setup/drivers/) for your accelerator.
@@ -26,26 +26,23 @@ Before starting, install the necessary [drivers](https://documentation.ubuntu.co
 | Engine | Arch | Description |
 |--------------|--------------|-------------|
 | cpu | amd64, arm64 | Optimized for several CPU variants (x86, armv8, armv9) |
-| intel-cpu | amd64 | Optimized for best performance on Intel CPUs |
-| intel-gpu | amd64 | Optimized for Intel integrated and discrete graphics |
 | nvidia-gpu | amd64, arm64 | CUDA-enabled GPU acceleration |
-| {engine} | {arch} | {description} |
 
 #### Install
 ```
-sudo snap install {snap-name}
+sudo snap install nomic-embed-text-v1-5
 ```
 #### Use
 ```
-{snap-name} --help
+nomic-embed-text-v1-5 --help
 ```
 
 #### Default configurations
 | Key | Value |
 |-----|-------|
-| http.port | {http-port}   |
+| http.port | 8348   |
 | http.host | 127.0.0.1 |
-| webui.http.port | {webui-http-port}  |
+| webui.http.port | 8349  |
 | webui.http.host | 127.0.0.1 |
 
 ## Resources
@@ -60,7 +57,7 @@ sudo snap install {snap-name}
 
 Clone this repo with its submodules:
 ```shell
-git clone --recurse-submodules https://github.com/{owner}/{repository}
+git clone --recurse-submodules https://github.com/canonical/nomic-embed-text-v1.5-snap
 ```
 
 Prepare the required models by running `make download-models`.
