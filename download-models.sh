@@ -4,4 +4,4 @@
 # This snap ships a single non-sharded GGUF, so no split step is required.
 set -euo pipefail
 
-make download-models
+make init
