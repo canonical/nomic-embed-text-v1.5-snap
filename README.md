@@ -16,8 +16,6 @@ engines: cpu, nvidia-gpu
 # Nomic Embed Text v1.5 inference snap
 [![nomic-embed-text-v1-5](https://snapcraft.io/nomic-embed-text-v1-5/badge.svg)](https://snapcraft.io/nomic-embed-text-v1-5)
 
-> This README is a template. Fields wrapped in `{...}` should be replaced with concrete values. If you use an agentic workflow using the included [workshop](#develop-this-snap-in-workshop), the values will get filled automatically.
-
 Install [Nomic Embed Text v1.5](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5), optimized directly for your hardware.
 This package deploys a high-performance runtime for local inference across arm and x86 platforms. It runs efficiently on pure CPU or leverages hardware acceleration via NVIDIA GPUs.
 
