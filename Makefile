@@ -6,7 +6,7 @@ hf := pipx run --spec "huggingface_hub[cli]" hf
 SNAP_NAME ?= nomic-embed-text-v1-5
 ENGINE ?= cpu
 
-.PHONY: help all init init-submodules install-deps download-models download-model-135m build install upload smoke-test
+.PHONY: help all init init-submodules install-deps download-models download-model build install upload smoke-test
 
 all: help
 
@@ -59,6 +59,4 @@ download-models: download-model
 
 download-model:
 	@echo "Downloading model weights..."
-	$(hf) download nomic-ai/nomic-embed-text-v1.5-GGUF \
-        nomic-embed-text-v1.5.Q4_K_M.gguf \
-        --local-dir components/model-nomic-embed-text-v1-5/
+	$(hf) download nomic-ai/nomic-embed-text-v1.5-GGUF nomic-embed-text-v1.5.Q4_K_M.gguf --local-dir components/model-nomic-embed-text-v1-5/
