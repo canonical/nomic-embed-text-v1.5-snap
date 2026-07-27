@@ -24,8 +24,8 @@ jobs:
       pr-number: "${{ github.event.pull_request.number }}"
       build-runner: |
         [
-          ["amd64", "large", "noble", "self-hosted"],
-          ["arm64", "noble", "self-hosted"]
+          "ubuntu-latest",
+          "ubuntu-24.04-arm"
         ]
       test-jobs-matrix: |
         [
