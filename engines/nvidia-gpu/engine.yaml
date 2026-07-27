@@ -5,12 +5,14 @@ description: |
   CUDA-enabled llama.cpp runtime.
 vendor: Canonical Ltd
 devices:
-  anyof:
-    - vendor-id: 0x10de
+  allof:
+    - type: cpu
+    - type: gpu
+      vendor-id: 0x10de
 runtime: llamacpp-cuda
 model:
-  default: nomic-embed-text-v1-5-q4-k-m-gguf
+  default: nomic-embed-text-v1-5
   options:
-    - nomic-embed-text-v1-5-q4-k-m-gguf
+    - nomic-embed-text-v1-5
 configurations:
   sleep-idle-seconds: 600

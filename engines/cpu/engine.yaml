@@ -5,12 +5,12 @@ description: |
   Optimized for several CPU variants (x86, armv8, armv9).
 vendor: Canonical Ltd
 devices:
-  anyof:
+  allof:
     - type: cpu
 runtime: llamacpp
 model:
-  default: nomic-embed-text-v1-5-q4-k-m-gguf
+  default: nomic-embed-text-v1-5
   options:
-    - nomic-embed-text-v1-5-q4-k-m-gguf
+    - nomic-embed-text-v1-5
 configurations:
   sleep-idle-seconds: 600
