@@ -3,7 +3,7 @@ name: nomic-embed-text-v1-5-q4-k-m-gguf
 description: Nomic Embed Text v1.5 text embedding model, Q4_K_M GGUF quantization.
 model-card-url: https://huggingface.co/nomic-ai/nomic-embed-text-v1.5
 quantization: Q4_K_M
-disk-size: 100M
+disk-size: 81M
 capabilities:
   - embedding
 components:

@@ -43,10 +43,10 @@ environment:
   SNAP_COMPONENTS: /snap/$SNAP_INSTANCE_NAME/components/$SNAP_REVISION
   ARCH_TRIPLET: $CRAFT_ARCH_TRIPLET_BUILD_FOR
 
-plugs:
-  # To allow sideloading models by root
-  home:
-    read: all
+#plugs:
+#  # To allow sideloading models by root
+#  home:
+#    read: all
 
 hooks:
   install:
@@ -64,9 +64,6 @@ apps:
       - hardware-observe
       - opengl
       - network
-      - desktop # To open the webui in the browser
-    environment:
-      ADDITIONAL_FEATURES: webui
 
   server:
     command: bin/server.sh
@@ -76,12 +73,6 @@ apps:
       - hardware-observe
       - opengl
       - home
-
-  server-webui:
-    command: bin/server-webui.sh
-    daemon: simple
-    plugs:
-      - network-bind
 
 parts:
   version:
@@ -111,17 +102,6 @@ parts:
 
       craftctl default
 
-  cli-dependencies:
-    plugin: nil
-    stage-packages:
-      - pciutils # lspci
-
-  webui:
-    plugin: dump
-    source: https://github.com/canonical/inference-snaps-webui/releases/download/v1.1.0/inference-snaps-webui.tar.xz
-    organize:
-      "*": webui/
-
   engines:
     source: engines
     plugin: dump
@@ -147,7 +127,6 @@ parts:
       - jq
     organize:
       "server.sh": bin/
-      "server-webui.sh": bin/
 
   local-component-files:
     plugin: cmake
@@ -196,7 +175,7 @@ parts:
   cli-nvidia-smi:
     plugin: nil
     stage-packages:
-      - nvidia-utils-535
+      - nvidia-utils-580
     organize:
       "usr/bin/nvidia-smi": bin/nvidia-smi
     prime:
