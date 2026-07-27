@@ -25,5 +25,6 @@ exec llama-server \
   --host "$host" \
   --no-warmup \
   --sleep-idle-seconds "$sleep_idle_seconds" \
+  --no-webui \
   "${extra_args[@]}" \
   "$@"
