@@ -24,9 +24,8 @@ jobs:
           "ubuntu-24.04",
           "ubuntu-24.04-arm"
         ]
-      build-init-script: 'download-models.sh'
-      store-track: latest
       snap-name: nomic-embed-text-v1-5
+      store-track: latest
       smoke-test-engine: cpu
       smoke-test-runner: |
         [
