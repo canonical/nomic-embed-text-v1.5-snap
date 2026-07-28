@@ -172,14 +172,19 @@ parts:
       # move everything, including the staged packages
       "*": (component/llamacpp-cuda)
 
+  # Used for NVIDIA vRAM and CUDA Capability detection.
+  # Only the binary is included to avoid staging libraries, which should instead be provided by the host through the opengl interface.
   cli-nvidia-smi:
     plugin: nil
-    stage-packages:
+    build-packages:
       - nvidia-utils-580
-    organize:
-      "usr/bin/nvidia-smi": bin/nvidia-smi
-    prime:
-      - bin/nvidia-smi
+    override-build: |
+      mkdir -p $CRAFT_PART_INSTALL/usr/bin
+      cp /usr/bin/nvidia-smi $CRAFT_PART_INSTALL/usr/bin/
+      
+      license_dir=$CRAFT_PART_INSTALL/usr/share/doc/nvidia-utils-580/
+      mkdir -p $license_dir
+      cp /usr/share/doc/nvidia-utils-580/copyright $license_dir/
 
   notice:
     plugin: nil
