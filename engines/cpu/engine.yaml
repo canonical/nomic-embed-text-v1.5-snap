@@ -1,0 +1,19 @@
+name: cpu
+summary: CPU inference for Nomic Embed Text v1.5
+description: |
+  Runs the Nomic Embed Text v1.5 embedding model on the CPU using the llama.cpp runtime.
+  Optimized for several CPU variants (x86, armv8, armv9).
+vendor: Canonical Ltd
+devices:
+  anyof:
+    - type: cpu
+      architecture: amd64
+    - type: cpu
+      architecture: arm64
+runtime: llamacpp
+model:
+  default: nomic-embed-text-v1-5
+  options:
+    - nomic-embed-text-v1-5
+configurations:
+  sleep-idle-seconds: 600

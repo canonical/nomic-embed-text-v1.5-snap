@@ -1,0 +1,11 @@
+Nomic Embed Text v1.5 inference snap
+
+This snap bundles the following third-party software and models:
+
+- Nomic Embed Text v1.5 model, (c) Nomic AI, licensed under Apache-2.0.
+  https://huggingface.co/nomic-ai/nomic-embed-text-v1.5
+- llama.cpp, licensed under the MIT License.
+  https://github.com/ggerganov/llama.cpp
+
+See /snap/nomic-embed-text-v1-5/current/usr/share/doc for the full license texts
+of all bundled software.

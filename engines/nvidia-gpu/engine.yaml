@@ -1,0 +1,22 @@
+name: nvidia-gpu
+summary: NVIDIA GPU inference for Nomic Embed Text v1.5
+description: |
+  Runs the Nomic Embed Text v1.5 embedding model on NVIDIA GPUs using the
+  CUDA-enabled llama.cpp runtime.
+vendor: Canonical Ltd
+devices:
+  anyof:
+    - type: cpu
+      architecture: amd64
+    - type: cpu
+      architecture: arm64
+  allof:
+    - type: gpu
+      vendor-id: 0x10de
+runtime: llamacpp-cuda
+model:
+  default: nomic-embed-text-v1-5
+  options:
+    - nomic-embed-text-v1-5
+configurations:
+  sleep-idle-seconds: 600

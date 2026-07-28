@@ -1,51 +1,51 @@
 <!--
 # This is the name of the snap. The name that is registered on the snap store and also the name of the cli command.
-snap-name: gemma4
+snap-name: nomic-embed-text-v1-5
 # This name is just a friendly name for the snap, it can be used in the documentation
-snap-friendly-name: Gemma 4
+snap-friendly-name: Nomic Embed Text v1.5
 # URL to model card from the model publisher
-model-card: https://ai.google.dev/gemma/docs/core/model_card_4
+model-card: https://huggingface.co/nomic-ai/nomic-embed-text-v1.5
 # The port that the inference snap will use for its API server.
-http-port: 8080
+http-port: 8348
 # The port that the inference snap will use for its webui server.
-webui-http-port: 8081
+webui-http-port: 8349
 # Optimizations
 engines: cpu, nvidia-gpu
 -->
 
-# {snap-friendly-name} inference snap
-[![{snap-name}](https://snapcraft.io/{snap-name}/badge.svg)](https://snapcraft.io/{snap-name})
+# Nomic Embed Text v1.5 inference snap
 
-> This README is a template. Fields wrapped in `{...}` should be replaced with concrete values. If you use an agentic workflow using the included [workshop](#develop-this-snap-in-workshop), the values will get filled automatically.
+[![nomic-embed-text-v1-5](https://snapcraft.io/nomic-embed-text-v1-5/badge.svg)](https://snapcraft.io/nomic-embed-text-v1-5)
 
-Install [{snap-friendly-name}]({model-card}), optimized directly for your hardware.
-This package deploys a high-performance runtime for local inference across arm and x86 platforms. It runs efficiently on pure CPU or leverages hardware acceleration via {NVIDIA, Intel, or AMD GPUs}.
+Install [Nomic Embed Text v1.5](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5), optimized directly for your hardware.
+This package deploys a high-performance runtime for local inference across arm and x86 platforms. It runs efficiently on pure CPU or leverages hardware acceleration via NVIDIA GPUs.
 
 Before starting, install the necessary [drivers](https://documentation.ubuntu.com/inference-snaps/how-to/setup/drivers/) for your accelerator.
 
 | Engine | Arch | Description |
 |--------------|--------------|-------------|
 | cpu | amd64, arm64 | Optimized for several CPU variants (x86, armv8, armv9) |
-| intel-cpu | amd64 | Optimized for best performance on Intel CPUs |
-| intel-gpu | amd64 | Optimized for Intel integrated and discrete graphics |
 | nvidia-gpu | amd64, arm64 | CUDA-enabled GPU acceleration |
-| {engine} | {arch} | {description} |
 
 #### Install
+
 ```
-sudo snap install {snap-name}
+sudo snap install nomic-embed-text-v1-5
 ```
+
 #### Use
+
 ```
-{snap-name} --help
+nomic-embed-text-v1-5 --help
 ```
 
 #### Default configurations
+
 | Key | Value |
 |-----|-------|
-| http.port | {http-port}   |
+| http.port | 8348   |
 | http.host | 127.0.0.1 |
-| webui.http.port | {webui-http-port}  |
+| webui.http.port | 8349  |
 | webui.http.host | 127.0.0.1 |
 
 ## Resources
@@ -58,19 +58,23 @@ sudo snap install {snap-name}
 
 ## Build and install from source
 
-Clone this repo with its submodules:
+Clone this repo:
 ```shell
-git clone --recurse-submodules https://github.com/{owner}/{repository}
+git clone https://github.com/canonical/nomic-embed-text-v1.5-snap
 ```
 
-Prepare the required models by running `make download-models`.
+Enter the cloned directory, then download and install the dependencies:
+```shell
+cd nomic-embed-text-v1.5-snap
+make init
+````
 
 Build the snap and its component:
 ```shell
 snapcraft pack -v
 ```
 
-Refer to the `./dev` directory for additional development tools.
+Refer to the `make` command for additional development tools.
 
 ## Develop this snap in a workshop
 

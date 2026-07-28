@@ -1,0 +1,30 @@
+#!/bin/bash -eu
+
+port="$(modelctl get http.port)"
+host="$(modelctl get http.host)"
+sleep_idle_seconds="$(modelctl get sleep-idle-seconds)"
+
+extra_args=()
+
+verbose="$(modelctl get verbose)"
+if [ "${verbose}" = "true" ]; then
+  extra_args+=(--verbose)
+fi
+
+set -x
+# This is an embedding model: run llama-server in embedding mode so it exposes
+# the /v1/embeddings endpoint instead of chat completions.
+# --no-warmup skips the model warmup phase during server startup to reduce
+# resource usage.
+exec llama-server \
+  --model "$MODEL_FILE" \
+  --alias "$MODEL_NAME" \
+  --embedding \
+  --pooling mean \
+  --port "$port" \
+  --host "$host" \
+  --no-warmup \
+  --sleep-idle-seconds "$sleep_idle_seconds" \
+  --no-webui \
+  "${extra_args[@]}" \
+  "$@"
