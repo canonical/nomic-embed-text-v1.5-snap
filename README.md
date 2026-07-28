@@ -14,6 +14,7 @@ engines: cpu, nvidia-gpu
 -->
 
 # Nomic Embed Text v1.5 inference snap
+
 [![nomic-embed-text-v1-5](https://snapcraft.io/nomic-embed-text-v1-5/badge.svg)](https://snapcraft.io/nomic-embed-text-v1-5)
 
 Install [Nomic Embed Text v1.5](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5), optimized directly for your hardware.
@@ -27,15 +28,19 @@ Before starting, install the necessary [drivers](https://documentation.ubuntu.co
 | nvidia-gpu | amd64, arm64 | CUDA-enabled GPU acceleration |
 
 #### Install
+
 ```
 sudo snap install nomic-embed-text-v1-5
 ```
+
 #### Use
+
 ```
 nomic-embed-text-v1-5 --help
 ```
 
 #### Default configurations
+
 | Key | Value |
 |-----|-------|
 | http.port | 8348   |
@@ -53,19 +58,23 @@ nomic-embed-text-v1-5 --help
 
 ## Build and install from source
 
-Clone this repo with its submodules:
+Clone this repo:
 ```shell
-git clone --recurse-submodules https://github.com/canonical/nomic-embed-text-v1.5-snap
+git clone https://github.com/canonical/nomic-embed-text-v1.5-snap
 ```
 
-Prepare the required models by running `make download-models`.
+Enter the cloned directory, then download and install the dependencies:
+```shell
+cd nomic-embed-text-v1.5-snap
+make init
+````
 
 Build the snap and its component:
 ```shell
 snapcraft pack -v
 ```
 
-Refer to the `./dev` directory for additional development tools.
+Refer to the `make` command for additional development tools.
 
 ## Develop this snap in a workshop
 
