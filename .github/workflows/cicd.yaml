@@ -21,10 +21,17 @@ jobs:
     with:
       build-runner: |
         [
-          "ubuntu-latest",
+          "ubuntu-24.04",
           "ubuntu-24.04-arm"
         ]
       build-init-script: 'download-models.sh'
       store-track: latest
       snap-name: nomic-embed-text-v1-5
       smoke-test-engine: cpu
+      smoke-test-runner: |
+        [
+          "ubuntu-24.04",
+          "ubuntu-24.04-arm"
+        ]
+    secrets:
+      store-credentials: ${{ secrets.STORE_LOGIN_MAIN }}
