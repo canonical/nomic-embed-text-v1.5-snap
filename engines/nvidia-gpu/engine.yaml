@@ -5,8 +5,12 @@ description: |
   CUDA-enabled llama.cpp runtime.
 vendor: Canonical Ltd
 devices:
-  allof:
+  anyof:
     - type: cpu
+      architecture: amd64
+    - type: cpu
+      architecture: arm64
+  allof:
     - type: gpu
       vendor-id: 0x10de
 runtime: llamacpp-cuda

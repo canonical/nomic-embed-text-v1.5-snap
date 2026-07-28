@@ -5,8 +5,11 @@ description: |
   Optimized for several CPU variants (x86, armv8, armv9).
 vendor: Canonical Ltd
 devices:
-  allof:
+  anyof:
     - type: cpu
+      architecture: amd64
+    - type: cpu
+      architecture: arm64
 runtime: llamacpp
 model:
   default: nomic-embed-text-v1-5
