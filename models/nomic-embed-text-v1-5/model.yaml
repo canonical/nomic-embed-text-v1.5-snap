@@ -3,8 +3,8 @@ description: Nomic Embed Text v1.5 text embedding model, Q4_K_M GGUF quantizatio
 model-card-url: https://huggingface.co/nomic-ai/nomic-embed-text-v1.5
 quantization: Q4_K_M
 disk-size: 81M
-capabilities:
-  - embedding
+#capabilities:
+#  - embedding # add back when lint/modelctl supports this: https://github.com/canonical/inference-snaps/issues/322
 components:
   - model-nomic-embed-text-v1-5
 environment:
