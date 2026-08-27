@@ -17,3 +17,4 @@ model:
     - nomic-embed-text-v1-5
 configurations:
   sleep-idle-seconds: 600
+  min-context-size: 4096
