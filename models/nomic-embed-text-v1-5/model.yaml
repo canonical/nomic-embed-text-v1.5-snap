@@ -9,4 +9,3 @@ components:
   - model-nomic-embed-text-v1-5
 environment:
   - MODEL_FILE=$SNAP_COMPONENTS/model-nomic-embed-text-v1-5/nomic-embed-text-v1.5.Q4_K_M.gguf
-  - MODEL_NAME=nomic-embed-text-v1-5
