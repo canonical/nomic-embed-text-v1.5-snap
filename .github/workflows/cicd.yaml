@@ -27,6 +27,7 @@ jobs:
       snap-name: nomic-embed-text-v1-5
       store-track: latest
       smoke-test-engine: cpu
+      smoke-test-features: openai_models
       smoke-test-runner: |
         [
           "ubuntu-24.04",
