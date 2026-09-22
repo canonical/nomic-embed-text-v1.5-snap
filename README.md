@@ -1,52 +1,29 @@
-<!--
-# This is the name of the snap. The name that is registered on the snap store and also the name of the cli command.
-snap-name: nomic-embed-text-v1-5
-# This name is just a friendly name for the snap, it can be used in the documentation
-snap-friendly-name: Nomic Embed Text v1.5
-# URL to model card from the model publisher
-model-card: https://huggingface.co/nomic-ai/nomic-embed-text-v1.5
-# The port that the inference snap will use for its API server.
-http-port: 8348
-# The port that the inference snap will use for its webui server.
-webui-http-port: 8349
-# Optimizations
-engines: cpu, nvidia-gpu
--->
-
 # Nomic Embed Text v1.5 inference snap
-
 [![nomic-embed-text-v1-5](https://snapcraft.io/nomic-embed-text-v1-5/badge.svg)](https://snapcraft.io/nomic-embed-text-v1-5)
 
-Install [Nomic Embed Text v1.5](https://huggingface.co/nomic-ai/nomic-embed-text-v1.5), optimized directly for your hardware.
-This package deploys a high-performance runtime for local inference across arm and x86 platforms. It runs efficiently on pure CPU or leverages hardware acceleration via NVIDIA GPUs.
+Nomic Embed Text v1.5 is a high-performance text embedding model that produces dense vector representations for retrieval and semantic search.
 
-Before starting, install the necessary [drivers](https://documentation.ubuntu.com/inference-snaps/how-to/setup/drivers/) for your accelerator.
+Use this snap to quickly install an optimized environment for local inference with Nomic Embed Text v1.5.
 
-| Engine | Arch | Description |
-|--------------|--------------|-------------|
-| cpu | amd64, arm64 | Optimized for several CPU variants (x86, armv8, armv9) |
-| nvidia-gpu | amd64, arm64 | CUDA-enabled GPU acceleration |
+The snap includes the following hardware-optimized inference engines:
+
+* cpu: Optimized for x64 and ARM (armv8, armv9) CPUs
+* nvidia-gpu: CUDA-enabled GPU acceleration
+
+The most suitable engine is automatically selected based on the available hardware.
 
 #### Install
-
-```
+```shell
 sudo snap install nomic-embed-text-v1-5
 ```
 
 #### Use
-
-```
+```shell
 nomic-embed-text-v1-5 --help
 ```
 
-#### Default configurations
-
-| Key | Value |
-|-----|-------|
-| http.port | 8348   |
-| http.host | 127.0.0.1 |
-| webui.http.port | 8349  |
-| webui.http.host | 127.0.0.1 |
+> [!TIP]
+> Some accelerators require extra [drivers](https://documentation.ubuntu.com/inference-snaps/how-to/setup/drivers/) to be usable with this snap.
 
 ## Resources
 
@@ -58,32 +35,19 @@ nomic-embed-text-v1-5 --help
 
 ## Build and install from source
 
-Clone this repo:
+Clone the repo:
 ```shell
 git clone https://github.com/canonical/nomic-embed-text-v1.5-snap
-```
-
-Enter the cloned directory, then download and install the dependencies:
-```shell
 cd nomic-embed-text-v1.5-snap
+```
+
+Initialize the development environment:
+```shell
 make init
-````
-
-Build the snap and its component:
-```shell
-snapcraft pack -v
 ```
 
-Refer to the `make` command for additional development tools.
-
-## Develop this snap in a workshop
-
-Start the `workshop` environment and pack the snap with AI agents:
-
+Build and install snap:
 ```shell
-workshop launch
-workshop shell
-opencode
+make build
+make install
 ```
-
-Choose the preferred LLM in opencode and prompt `start packing pipeline` to start the snap creation process. The snap will be built and installed automatically in the workshop environment.
