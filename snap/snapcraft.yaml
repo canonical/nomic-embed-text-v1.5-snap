@@ -1,27 +1,39 @@
 name: nomic-embed-text-v1-5
+title: Nomic Embed Text v1.5
 base: core24
-summary: Nomic Embed Text v1.5 inference snap
+summary: Local AI with Nomic Embed Text v1.5 inference snap
 description: |
-  This is an inference snap that lets you run nomic-embed-text-v1-5, a high-performance
-  text embedding model that produces dense vector representations for retrieval and
-  semantic search.
+  Nomic Embed Text v1.5 is a high-performance text embedding model that produces
+  dense vector representations for retrieval and semantic search.
 
-  Before you start, make sure to have the necessary drivers installed on the host:
-  https://documentation.ubuntu.com/inference-snaps/how-to/install-drivers/
+  Use this snap to quickly install an optimized environment for local inference with Nomic Embed Text v1.5.
+
+  The snap includes the following hardware-optimized inference engines:
+
+  * cpu: Optimized for x64 and ARM (armv8, armv9) CPUs
+  * nvidia-gpu: CUDA-enabled GPU acceleration
+
+  The most suitable engine is automatically selected based on the available hardware.
 
   **Install:**
 
   `sudo snap install nomic-embed-text-v1-5`
 
-  **Get help:**
+  **Use:**
 
   `nomic-embed-text-v1-5 --help`
 
-  **Licensing:**
+  Some accelerators require extra drivers to be usable with this snap:
+  https://documentation.ubuntu.com/inference-snaps/how-to/setup/drivers/
+
+  **License:**
 
   The Nomic Embed Text v1.5 model is provided by Nomic AI under the Apache-2.0 license.
 
-  The licenses of all bundled software can be found inside the snap at `/snap/nomic-embed-text-v1-5/current/usr/share/doc`.
+  The licenses of all the bundled software can be found after installing the snap at
+  `/snap/nomic-embed-text-v1-5/current/usr/share/doc`.
+
+icon: snap/gui/icon-256.png
 website: https://documentation.ubuntu.com/inference-snaps
 source-code: https://github.com/canonical/nomic-embed-text-v1.5-snap
 issues: https://github.com/canonical/inference-snaps/issues
@@ -222,3 +234,9 @@ components:
     summary: llama.cpp runtime (NVIDIA CUDA)
     description: |
       The llama.cpp runtime built with CUDA acceleration for NVIDIA GPUs.
+
+lint:
+  ignore:
+    - metadata:
+      - license
+      - contact
