@@ -4,7 +4,7 @@ model-card-url: https://huggingface.co/nomic-ai/nomic-embed-text-v1.5
 quantization: Q4_K_M
 disk-size: 81M
 capabilities:
- - text-embedding 
+ - text-embedding
 components:
   - model-nomic-embed-text-v1-5
 environment:
