@@ -13,6 +13,17 @@ if [ "${verbose}" = "true" ]; then
   extra_args+=(--verbose)
 fi
 
+if ! devices="$(llama-server --list-devices 2>&1)"; then
+  printf '%s\n' "$devices" >&2
+  echo "Failed to query CUDA devices." >&2
+  exit 1
+fi
+if ! grep -qE '^[[:space:]]*CUDA[0-9]+:' <<< "$devices"; then
+  printf '%s\n' "$devices" >&2
+  echo "No CUDA device found." >&2
+  exit 1
+fi
+
 set -x
 # This is an embedding model: run llama-server in embedding mode so it exposes
 # the /v1/embeddings endpoint instead of chat completions.
